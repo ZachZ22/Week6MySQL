@@ -11,7 +11,7 @@ import entity.CharacterName;
 
 public class characterNameDAO {
 	public void createCharacterName(String firstName, String lastName) throws SQLException {
-		String sql = "INSERT INTO Character_Name (firstName, lastName) VALUES (?, ?)";
+		String sql = "INSERT INTO Character_Name (first_name, last_name) VALUES (?, ?)";
 		Connection connection = null;
 		PreparedStatement statement = null;
 
@@ -47,6 +47,7 @@ public class characterNameDAO {
 				long characterNameId = resultSet.getLong("character_Name_Id");
 				String firstName = resultSet.getString("first_name");
 				String lastName = resultSet.getString("last_name");
+				int race_id = resultSet.getInt("race_id");
 				CharacterName characterName = new CharacterName(characterNameId, firstName, lastName);
 				characterNames.add(characterName);
 			}
